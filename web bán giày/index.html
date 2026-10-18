@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ShoeStore</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="header-top">
+
+      <h2>👟 ShoeStore</h2>
+
+      <div id="user"></div>
+
+    </div>
+
+    <div class="search-box">
+
+      <input
+        id="search"
+        placeholder="Tìm giày hoặc hãng..."
+        autocomplete="off"
+        readonly
+        onfocus="this.removeAttribute('readonly');"
+      >
+
+      <div id="suggest"></div>
+
+    </div>
+
+  </header>
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- DANH MỤC -->
+      <h3>📂 Danh mục</h3>
+
+      <ul class="category-list">
+
+        <li onclick="filterCategory('')">
+          Tất cả
+        </li>
+
+        <li onclick="filterCategory('Sneaker')">
+          Sneaker
+        </li>
+
+        <li onclick="filterCategory('Running')">
+          Running
+        </li>
+
+        <li onclick="filterCategory('Casual')">
+          Casual
+        </li>
+
+        <li onclick="filterCategory('Skate')">
+          Skate
+        </li>
+
+      </ul>
+
+      <hr style="margin:20px 0;">
+
+      <!-- TÀI KHOẢN -->
+      <h3>👤 Tài khoản</h3>
+
+      <div class="auth-box">
+
+        <h3 id="formTitle">
+          Đăng nhập
+        </h3>
+
+        <input
+          id="username"
+          placeholder="Tên đăng nhập"
+        >
+
+        <input
+          id="password"
+          type="password"
+          placeholder="Mật khẩu"
+        >
+
+        <button onclick="submitForm()">
+          Xác nhận
+        </button>
+
+        <span
+          onclick="toggleMode()"
+          class="toggle"
+        >
+          Chưa có tài khoản? Đăng ký
+        </span>
+
+      </div>
+
+      <hr style="margin:20px 0;">
+
+      <!-- HÃNG GIÀY -->
+      <h3>🏷️ Thương hiệu</h3>
+
+      <label>
+        <input type="checkbox">
+        Nike
+      </label>
+      <br>
+
+      <label>
+        <input type="checkbox">
+        Adidas
+      </label>
+      <br>
+
+      <label>
+        <input type="checkbox">
+        Puma
+      </label>
+      <br>
+
+      <label>
+        <input type="checkbox">
+        Converse
+      </label>
+      <br>
+
+      <label>
+        <input type="checkbox">
+        Vans
+      </label>
+      <br>
+
+      <label>
+        <input type="checkbox">
+        New Balance
+      </label>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <div class="content-header">
+
+        <h3>
+          👟 Danh sách giày
+        </h3>
+
+      </div>
+
+      <div id="list" class="grid"></div>
+
+      <div id="pagination"></div>
+
+    </main>
+
+  </div>
+
+  <!-- GIỎ HÀNG -->
+  <section class="cart-section">
+
+    <div class="cart-box">
+
+      <div class="payment-box">
+
+        <h3>💳 Thanh toán</h3>
+
+        <button onclick="pay()">
+          Thanh toán
+        </button>
+
+        <div id="qrBox"></div>
+
+      </div>
+
+      <hr style="margin:20px 0;">
+
+      <h3>🛒 Giỏ hàng</h3>
+
+      <div id="cart"></div>
+
+    </div>
+
+  </section>
+
+  <!-- MODAL -->
+  <div id="detailModal" class="modal">
+
+    <div
+      class="modal-content"
+      id="detailContent"
+    ></div>
+
+  </div>
+
+  <!-- FLOATING BAR -->
+  <div class="floating-bar">
+
+    <div onclick="window.scrollTo(0,0)">
+      ↑
+    </div>
+
+    <div onclick="showCart()">
+      🛒
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Design by Đặng Đức Anh</p>
+    <p>All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

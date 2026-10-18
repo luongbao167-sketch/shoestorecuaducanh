@@ -1,0 +1,872 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f4f1;
+    color: #222;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: relative;
+    min-height: 440px;
+    padding: 25px 45px;
+    color: white;
+    overflow: hidden;
+
+    /*
+       Ảnh 1:
+       images/header.jpg
+    */
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.48),
+            rgba(0, 0, 0, 0.52)
+        ),
+        url("imgs/header.jpg");
+
+    background-size: cover;
+
+    /*
+       Ảnh gốc là ảnh dọc.
+       52% giúp lấy phần bàn + sách đẹp hơn.
+    */
+    background-position: center 57%;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.18);
+}
+
+
+/* lớp phủ nhẹ */
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.45)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER TOP
+========================================================= */
+
+.header-top {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+/* tên website */
+
+.header-top h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    color: #fff;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.65);
+}
+
+
+/* =========================================================
+   USER
+========================================================= */
+
+#user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#user button {
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+
+    font-weight: bold;
+
+    border: none;
+    border-radius: 3px;
+
+    padding: 9px 16px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#user button:hover {
+    background: #d4ae62;
+    color: white;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 25px;
+}
+
+#search {
+    width: 420px;
+    max-width: 90%;
+
+    padding: 14px 18px;
+
+    border: none;
+    border-radius: 3px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    color: #222;
+
+    font-size: 16px;
+
+    outline: none;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.22);
+}
+
+#search::placeholder {
+    color: #777;
+}
+
+
+/* =========================================================
+   GỢI Ý TÌM KIẾM
+========================================================= */
+
+#suggest {
+    position: absolute;
+
+    top: 58px;
+
+    width: 420px;
+    max-width: 90%;
+
+    background: white;
+
+    border-radius: 3px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    z-index: 999;
+
+    display: none;
+}
+
+.item {
+    padding: 13px 15px;
+
+    cursor: pointer;
+
+    color: #222;
+
+    border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item:hover {
+    background: #f5f2eb;
+
+    color: #9b7636;
+}
+
+
+/* =========================================================
+   TIÊU ĐỀ HERO
+========================================================= */
+
+header::after {
+    content: "My ShoesStore";
+
+    position: absolute;
+
+    left: 50%;
+    top: 58%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 58px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    color: white;
+
+    text-align: center;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.7);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    display: flex;
+
+    gap: 28px;
+
+    padding: 35px 45px;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    width: 260px;
+
+    flex-shrink: 0;
+
+    background: #fff;
+
+    padding: 25px;
+
+    border-radius: 3px;
+
+    height: fit-content;
+
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.07);
+}
+
+.sidebar h3 {
+    margin-bottom: 18px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    color: #555;
+}
+
+.sidebar li:hover {
+    background: #f5efe3;
+
+    color: #a17b3d;
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.auth-box {
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eee;
+}
+
+.auth-box input {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 2px;
+
+    outline: none;
+}
+
+.auth-box input:focus {
+    border-color: #b6945a;
+}
+
+.toggle {
+    color: #a17b3d;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.content-header {
+    margin-bottom: 25px;
+}
+
+.content-header h3 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    color: #333;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   BOOK
+========================================================= */
+
+.book {
+    background: white;
+
+    border-radius: 2px;
+
+    overflow: hidden;
+
+    padding: 15px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.book:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.book img {
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: contain;
+
+    background: #fafafa;
+
+    border-radius: 1px;
+}
+
+.book h3 {
+    margin: 15px 0 6px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 20px;
+
+    font-weight: normal;
+}
+
+.book p {
+    color: #777;
+
+    margin: 6px 0;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button {
+    background: #a17b3d;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #80602f;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+#pagination {
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+.page {
+    display: inline-block;
+
+    background: white;
+
+    padding: 9px 15px;
+
+    margin: 5px;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s;
+}
+
+.page:hover {
+    background: #a17b3d;
+
+    color: white;
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+.cart-section {
+    padding: 0 45px 35px;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+.cart-box {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.07);
+}
+
+#cart p {
+    margin: 10px 0;
+}
+
+
+/* =========================================================
+   QR / PAYMENT
+========================================================= */
+
+.payment-box {
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+#qrBox {
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.58);
+
+    z-index: 9999;
+}
+
+.modal-content {
+    width: 400px;
+
+    max-width: 90%;
+
+    background: white;
+
+    margin: 80px auto;
+
+    padding: 25px;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    position: relative;
+
+    min-height: 330px;
+
+    margin-top: 35px;
+
+    padding: 70px 40px;
+
+    color: white;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    /*
+       Ảnh 2:
+       images/footer.jpg
+    */
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.68),
+            rgba(0, 0, 0, 0.68)
+        ),
+        url("imgs/footer.jpg");
+
+    background-size: cover;
+
+    /*
+       Căn ảnh thứ 2 để phần sách nằm
+       đẹp ở trung tâm footer.
+    */
+    background-position: center center;
+
+    box-shadow:
+        0 -3px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* nội dung footer */
+
+.footer h3 {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+
+    color: white;
+}
+
+.footer p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+
+    margin: 8px auto;
+
+    line-height: 1.8;
+
+    color: #eee;
+}
+
+.footer a {
+    position: relative;
+
+    z-index: 2;
+
+    color: #d5b16c;
+
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        min-height: 400px;
+
+        padding: 25px 25px;
+
+        background-position:
+            center 55%;
+    }
+
+    header::after {
+        font-size: 45px;
+
+        top: 60%;
+    }
+
+    .container {
+        flex-direction: column;
+
+        padding: 25px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .header-top {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .header-top h2 {
+        font-size: 30px;
+    }
+
+    .cart-section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .footer {
+        padding: 55px 25px;
+
+        min-height: 300px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 390px;
+
+        padding: 20px 15px;
+
+        /*
+           Trên điện thoại lấy phần
+           sách + bàn ở giữa.
+        */
+        background-position:
+            center 58%;
+    }
+
+    header::after {
+        font-size: 36px;
+
+        top: 62%;
+    }
+
+    .header-top h2 {
+        font-size: 26px;
+    }
+
+    #search {
+        width: 95%;
+
+        font-size: 14px;
+    }
+
+    #suggest {
+        width: 95%;
+    }
+
+    .container {
+        padding: 20px 15px;
+
+        gap: 20px;
+    }
+
+    .grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .book {
+        padding: 10px;
+    }
+
+    .book img {
+        height: 210px;
+    }
+
+    .book h3 {
+        font-size: 17px;
+    }
+
+    .cart-section {
+        padding: 0 15px 25px;
+    }
+
+    .footer {
+        min-height: 280px;
+
+        padding: 50px 15px;
+
+        background-position: center center;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .book img {
+        height: 260px;
+    }
+
+    header::after {
+        font-size: 32px;
+    }
+}
